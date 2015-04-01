@@ -30,7 +30,7 @@ public class ErrorHandler
             Builder parser = new Builder();
 			try
 			{
-            	Document doc = parser.build(errorBody);
+				Document doc = parser.build(IOUtils.toInputStream(errorBody));
 				return new SWORDError(status, errorBody, doc);
 			}
 			catch (ParsingException e)
